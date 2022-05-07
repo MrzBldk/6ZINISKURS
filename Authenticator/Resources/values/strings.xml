@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Authenticator</string>
+  <string name="hash_prompt">Choose a HMAC implementation to use</string>
+  <string-array name="hash_array">
+    <item>HMACSHA1</item>
+    <item>HMACSHA256</item>
+    <item>HMACSHA512</item>
+  </string-array>
+</resources>

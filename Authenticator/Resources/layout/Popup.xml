@@ -1,0 +1,191 @@
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@android:color/white">
+
+        <TextView
+            android:id="@+id/allocate_collector"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="10dp"
+            android:text="Add code"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:maxLines="1"
+            android:textColor="@android:color/black"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/collector_name"
+        app:layout_constraintTop_toBottomOf="@+id/allocate_collector"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+            <AutoCompleteTextView
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/autocomplete_name"
+                  android:inputType="textAutoComplete"
+                  android:completionThreshold="1"
+                  android:singleLine="true"
+                  android:gravity="bottom"
+                  android:hint="Account Name"
+                  android:textSize="14dp"
+                  android:paddingRight="20dp"
+                  android:textColor="@android:color/black"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/collector_key"
+        app:layout_constraintTop_toBottomOf="@+id/collector_name"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+            <AutoCompleteTextView
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/autocomplete_key"
+                  android:inputType="textAutoComplete"
+                  android:completionThreshold="1"
+                  android:singleLine="true"
+                  android:gravity="bottom"
+                  android:hint="Key"
+                  android:textSize="14dp"
+                  android:paddingRight="20dp"
+                  android:textColor="@android:color/black"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/collector_step"
+        app:layout_constraintTop_toBottomOf="@+id/collector_key"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+            <AutoCompleteTextView
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/autocomplete_step"
+                  android:inputType="textAutoComplete"
+                  android:completionThreshold="1"
+                  android:singleLine="true"
+                  android:gravity="bottom"
+                  android:hint="Time step"
+                  android:textSize="14dp"
+                  android:paddingRight="20dp"
+                  android:textColor="@android:color/black"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/collector_length"
+        app:layout_constraintTop_toBottomOf="@+id/collector_step"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+            <AutoCompleteTextView
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/autocomplete_length"
+                  android:inputType="textAutoComplete"
+                  android:completionThreshold="1"
+                  android:singleLine="true"
+                  android:gravity="bottom"
+                  android:hint="Code length"
+                  android:textSize="14dp"
+                  android:paddingRight="20dp"
+                  android:textColor="@android:color/black"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/collector_length"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/hash_prompt"
+        android:id="@+id/spinner_text"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
+
+        <Spinner
+        android:id="@+id/spinner"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_text"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:prompt="@string/hash_prompt"/>
+
+        <View
+         android:id="@+id/topview_of_logout"
+         app:layout_constraintTop_toBottomOf="@+id/spinner"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+         android:layout_width="match_parent"
+         android:layout_height="1dp"
+         android:background="@android:color/transparent"
+         android:layout_marginTop="30dp"/>
+
+        <View
+         android:id="@+id/midview_of_logout"
+         app:layout_constraintTop_toBottomOf="@+id/topview_of_logout"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+         android:layout_width="1dp"
+         android:layout_height="37dp"
+         android:layout_marginLeft="1dp"
+         android:layout_marginRight="1dp"
+         android:background="@android:color/transparent"/>
+
+        <Button
+         android:id="@+id/btnCancel"
+         app:layout_constraintTop_toBottomOf="@+id/topview_of_logout"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintEnd_toStartOf="@+id/midview_of_logout"
+         android:layout_width="0dp"
+         android:layout_height="43dp"
+         android:background="@null"
+         android:text="Cancel"
+         android:textAllCaps="false"
+         android:textSize="12dp"
+         android:layout_margin="2dp"/>
+
+        <Button
+         android:id="@+id/btnOk"
+         app:layout_constraintTop_toBottomOf="@+id/topview_of_logout"
+         app:layout_constraintStart_toEndOf="@+id/midview_of_logout"
+         app:layout_constraintEnd_toEndOf="parent"
+         android:layout_width="0dp"
+         android:layout_height="43dp"
+         android:text="Submit"
+         android:textSize="12dp"
+         android:textAllCaps="false"
+         android:background="@android:color/white"
+         android:layout_margin="2dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
