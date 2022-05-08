@@ -7,12 +7,12 @@ using AndroidX.AppCompat.App;
 using AndroidX.RecyclerView.Widget;
 using Authenticator.Adapters;
 using Authenticator.Models;
-using Authenticator.Services;
 using Google.Android.Material.FloatingActionButton;
 using SQLite;
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using TotpLibrary;
 
 namespace Authenticator
 {

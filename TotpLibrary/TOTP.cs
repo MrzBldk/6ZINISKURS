@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 
-namespace Authenticator.Services
+namespace TotpLibrary
 {
     public class TOTP
     {
@@ -36,9 +36,11 @@ namespace Authenticator.Services
 
         private byte[] HmacHash(byte[] privateKey, byte[] counter)
         {
-            using HMAC hasher = HMAC.Create(_algorithm);
-            hasher.Key = privateKey;
-            return hasher.ComputeHash(counter);
+            using (HMAC hasher = HMAC.Create(_algorithm))
+            {
+                hasher.Key = privateKey;
+                return hasher.ComputeHash(counter);
+            }
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -52,10 +54,7 @@ namespace Authenticator.Services
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private int TruncateHash(byte[] hash)
         {
-            // The RFC has a hard coded index 19 in this value.
-            // This is the same thing but also accommodates SHA256 and SHA512
-            // hash[19] => hash[hmacComputedHash.Length - 1]
-            int truncationOffset = hash[^1] & 0xF;
+            int truncationOffset = hash[hash.Length - 1] & 0xF;
             int binaryCode =
                 ((hash[truncationOffset + 0] & 0x7F) << 24) |
                 ((hash[truncationOffset + 1] & 0xFF) << 16) |

@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Authenticator.Services
+namespace TotpLibrary
 {
-    static class Base32
+    public static class Base32
     {
         public static byte[] ToBytes(string input)
         {
@@ -10,9 +10,9 @@ namespace Authenticator.Services
                 throw new ArgumentNullException(nameof(input));
 
             input = input.Replace(" ", string.Empty);
-            input = input.TrimEnd('='); //remove padding characters
+            input = input.TrimEnd('=');
 
-            int byteCount = input.Length * 5 / 8; //this must be TRUNCATED
+            int byteCount = input.Length * 5 / 8;
             var returnArray = new byte[byteCount];
 
             byte curByte = 0, bitsRemaining = 8;
@@ -38,7 +38,6 @@ namespace Authenticator.Services
                 }
             }
 
-            //if we didn't end with a full byte
             if (arrayIndex != byteCount)
             {
                 returnArray[arrayIndex] = curByte;
@@ -52,8 +51,8 @@ namespace Authenticator.Services
             if (input == null || input.Length == 0)
                 throw new ArgumentNullException(nameof(input));
 
-            int charCount = (int)Math.Ceiling(input.Length / 5d) * 8;
-            char[] returnArray = new char[charCount];
+            var charCount = (int)Math.Ceiling(input.Length / 5d) * 8;
+            var returnArray = new char[charCount];
 
             byte nextChar = 0, bitsRemaining = 5;
             int arrayIndex = 0;
@@ -74,12 +73,11 @@ namespace Authenticator.Services
                 nextChar = (byte)((b << bitsRemaining) & 31);
             }
 
-            //if we didn't end with a full char
             if (arrayIndex != charCount)
             {
                 returnArray[arrayIndex++] = ValueToChar(nextChar);
                 while (arrayIndex != charCount)
-                    returnArray[arrayIndex++] = '='; //padding
+                    returnArray[arrayIndex++] = '=';
             }
 
             return new string(returnArray);
@@ -89,17 +87,14 @@ namespace Authenticator.Services
         {
             int value = c;
 
-            //65-90 == uppercase letters
             if (value < 91 && value > 64)
             {
                 return value - 65;
             }
-            //50-55 == numbers 2-7
             if (value < 56 && value > 49)
             {
                 return value - 24;
             }
-            //97-122 == lowercase letters
             if (value < 123 && value > 96)
             {
                 return value - 97;

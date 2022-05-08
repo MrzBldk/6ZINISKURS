@@ -1,9 +1,9 @@
 ﻿using Android.Views;
 using AndroidX.RecyclerView.Widget;
 using Authenticator.Models;
-using Authenticator.Services;
 using SQLite;
 using System;
+using TotpLibrary;
 
 namespace Authenticator.Adapters
 {
@@ -21,8 +21,7 @@ namespace Authenticator.Adapters
 
         private void OnLongClick(int position)
         {
-            if (ItemLongClick != null)
-                ItemLongClick(this, position);
+            ItemLongClick?.Invoke(this, position);
         }
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
