@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authenticator", "Authentica
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TotpLibrary", "TotpLibrary\TotpLibrary.csproj", "{3C6ABCA7-F492-4EC7-B617-ED06FD077E10}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TotpTests", "TotpTests\TotpTests.csproj", "{81BCC377-F899-4977-9F14-398C46475B34}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{3C6ABCA7-F492-4EC7-B617-ED06FD077E10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C6ABCA7-F492-4EC7-B617-ED06FD077E10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C6ABCA7-F492-4EC7-B617-ED06FD077E10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81BCC377-F899-4977-9F14-398C46475B34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81BCC377-F899-4977-9F14-398C46475B34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81BCC377-F899-4977-9F14-398C46475B34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81BCC377-F899-4977-9F14-398C46475B34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

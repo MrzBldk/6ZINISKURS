@@ -23,8 +23,6 @@ namespace Authenticator
         
         private CodeAdapater _adapter;
 
-        private Button btnPopupCancel;
-        private Button btnPopOk;
         private Dialog popupDialog;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -83,8 +81,8 @@ namespace Authenticator
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spinner.Adapter = adapter;
 
-            btnPopupCancel = popupDialog.FindViewById<Button>(Resource.Id.btnCancel);
-            btnPopOk = popupDialog.FindViewById<Button>(Resource.Id.btnOk);
+            Button btnPopupCancel = popupDialog.FindViewById<Button>(Resource.Id.btnCancel);
+            Button btnPopOk = popupDialog.FindViewById<Button>(Resource.Id.btnOk);
 
             btnPopupCancel.Click += BtnPopupCancel_Click;
             btnPopOk.Click += BtnPopOk_Click;
