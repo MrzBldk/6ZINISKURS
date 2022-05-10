@@ -86,7 +86,6 @@ namespace Authenticator
 
             btnPopupCancel.Click += BtnPopupCancel_Click;
             btnPopOk.Click += BtnPopOk_Click;
-
         }
         private void BtnPopOk_Click(object sender, EventArgs e)
         {

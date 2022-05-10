@@ -9,9 +9,9 @@ namespace TotpTests
     public class TotpTests
     {
 
-        private static readonly byte[] Key20Bits = Encoding.UTF8.GetBytes("12345678901234567890");
-        private static readonly byte[] Key32Bits = Encoding.UTF8.GetBytes("12345678901234567890123456789012");
-        private static readonly byte[] Key64Bits = Encoding.UTF8.GetBytes("1234567890123456789012345678901234567890123456789012345678901234");
+        private static readonly byte[] Key20Bytes = Encoding.UTF8.GetBytes("12345678901234567890");
+        private static readonly byte[] Key32Bytes = Encoding.UTF8.GetBytes("12345678901234567890123456789012");
+        private static readonly byte[] Key64Bytes = Encoding.UTF8.GetBytes("1234567890123456789012345678901234567890123456789012345678901234");
 
         [Test(Description = "Checks if 8-digits code generated with HMAC-SHA1 and 30-second timespan is correct")]
         [TestCase("1970-01-01T00:00:59Z", "94287082")]
@@ -24,7 +24,7 @@ namespace TotpTests
         {
             DateTimeOffset date = DateTimeOffset.Parse(dateStr);
             TOTP totp = new(()=>date, TimeSpan.FromSeconds(30), "HMACSHA1", 8);
-            string actualCode = totp.Generate(Key20Bits);
+            string actualCode = totp.Generate(Key20Bytes);
             Assert.That(actualCode, Is.EqualTo(expectedCode));
         }
 
@@ -39,7 +39,7 @@ namespace TotpTests
         {
             DateTimeOffset date = DateTimeOffset.Parse(dateStr);
             TOTP totp = new(() => date, TimeSpan.FromSeconds(30), "HMACSHA256", 8);
-            string actualCode = totp.Generate(Key32Bits);
+            string actualCode = totp.Generate(Key32Bytes);
             Assert.That(actualCode, Is.EqualTo(expectedCode));
         }
 
@@ -54,7 +54,7 @@ namespace TotpTests
         {
             var date = DateTimeOffset.Parse(dateStr);
             TOTP totp = new(() => date, TimeSpan.FromSeconds(30), "HMACSHA512", 8);
-            var actualCode = totp.Generate(Key64Bits);
+            var actualCode = totp.Generate(Key64Bytes);
             Assert.That(actualCode, Is.EqualTo(expectedCode));
         }
     }
